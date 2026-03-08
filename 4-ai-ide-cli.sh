@@ -2,6 +2,10 @@
 
 # Script to check Node and Python, then install AI CLIs: Codex (GitHub Copilot), Gemini, Claude, Grok
 
+echo "Loading NVM..."
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 echo "Checking Node..."
 if command -v node &> /dev/null; then
     echo "Node is installed: $(node --version)"
@@ -17,10 +21,6 @@ else
 fi
 
 echo "Installing AI CLIs..."
-
-# Load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Install Claude CLI
 npm install -g @anthropic-ai/claude-code
